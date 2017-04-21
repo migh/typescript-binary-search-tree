@@ -26,14 +26,14 @@ export class BinarySearchTree<NodeClass extends Node<T>, T> {
             break;
           case -1:
             if ( pointer.left ) {
-              pointer = pointer.left;
+              pointer = pointer.left as NodeClass;
             } else {
               pointer.left = node;
             }
             break;
           case 1:
             if ( pointer.right ) {
-              pointer = pointer.right;
+              pointer = pointer.right as NodeClass;
             } else {
               pointer.right = node;
             }
@@ -60,14 +60,14 @@ export class BinarySearchTree<NodeClass extends Node<T>, T> {
             break;
           case -1:
             if ( start.right ) {
-              res = traversal( start.right );
+              res = traversal( start.right  as NodeClass );
             } else {
               res = null;
             }
             break;
           case 1:
             if ( start.left ) {
-              res = traversal( start.left );
+              res = traversal( start.left as NodeClass );
             } else {
               res = null;
             }
@@ -99,8 +99,8 @@ export class BinarySearchTree<NodeClass extends Node<T>, T> {
     let traversal = ( start: NodeClass ) => {
       if( start ) {
         res.push( start );
-        traversal( start.left );
-        traversal( start.right );
+        traversal( start.left as NodeClass );
+        traversal( start.right as NodeClass );
       }
     };
 
@@ -113,9 +113,9 @@ export class BinarySearchTree<NodeClass extends Node<T>, T> {
     let res: NodeClass[] = [];
     let traversal = ( start: NodeClass ) => {
       if( start ) {
-        traversal( start.left );
+        traversal( start.left as NodeClass );
         res.push( start );
-        traversal( start.right );
+        traversal( start.right as NodeClass );
       }
     };
 
@@ -128,8 +128,8 @@ export class BinarySearchTree<NodeClass extends Node<T>, T> {
     let res: NodeClass[] = [];
     let traversal = ( start: NodeClass ) => {
       if( start ) {
-        traversal( start.left );
-        traversal( start.right );
+        traversal( start.left as NodeClass );
+        traversal( start.right as NodeClass );
         res.push( start );
       }
     };
