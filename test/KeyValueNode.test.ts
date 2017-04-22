@@ -55,27 +55,27 @@ describe('KeyValueNode', () => {
   describe('compareByData', () => {
     let firstNode: KeyValueNode,
      secondNode: KeyValueNode;
-    let firstString: string,
-     secondString: string;
+    let firstData: { key: string },
+     secondData: { key: string };
 
     beforeEach(() => {
       firstNode = new KeyValueNode({key: 'APP.VERSION', value: '1.0.0'});
-      firstString = 'APP.VERSION';
+      firstData = { key: 'APP.VERSION' };
       secondNode = new KeyValueNode({key: 'APP.NAME', value: 'Prueba App'});
-      secondString = 'APP.NAME';
+      secondData = { key: 'APP.NAME' };
     });
 
     it('should return 1, firstNode is greater than secondString', () => {
-      expect( firstNode.compareByData(secondString) ).toBe(1);
+      expect( firstNode.compareByData(secondData) ).toBe(1);
     });
 
     it('should return 0, if strings are equal', () => {
-      expect( firstNode.compareByData(firstString) ).toBe(0);
-      expect( secondNode.compareByData(secondString) ).toBe(0);
+      expect( firstNode.compareByData(firstData) ).toBe(0);
+      expect( secondNode.compareByData(secondData) ).toBe(0);
     });
 
     it('should return -1, firstNode is less than secondString', () => {
-      expect( secondNode.compareByData(firstString) ).toBe(-1);
+      expect( secondNode.compareByData(firstData) ).toBe(-1);
     });
   });
 });
